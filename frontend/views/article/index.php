@@ -24,8 +24,8 @@ $this->title = $article->name;
         border: 1px solid #ddd;
         border-radius: 5px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        max-width: 800px; /* Ограничение ширины блока */
-        overflow: hidden; /* Предотвращает выход содержимого за пределы */
+        max-width: 800px; 
+        overflow: hidden; 
     }
     .article-title {
         font-size: 2em;
@@ -36,9 +36,9 @@ $this->title = $article->name;
         font-size: 1.2em;
         color: #444;
         line-height: 1.6;
-        word-wrap: break-word; /* Перенос длинных слов */
-        overflow-wrap: break-word; /* Поддержка для старых браузеров */
-        padding: 15px; /* Отступ от рамки */
-        box-sizing: border-box; /* Учитывает отступы в ширине */
+        word-wrap: break-word; 
+        overflow-wrap: break-word; 
+        padding: 15px; 
+        box-sizing: border-box; 
     }
 </style>

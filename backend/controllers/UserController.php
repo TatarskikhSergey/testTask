@@ -71,7 +71,6 @@ class UserController extends Controller
         $model->generateAuthKey();
         $post = $this->request->post();
 
-
         if ($this->request->isPost) {
             $model->setPassword($post['User']['password_hash']);
             if ($model->load($post) && $model->save()) {
