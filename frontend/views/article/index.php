@@ -9,7 +9,14 @@ $this->title = $article->name;
     <div class="article-content">
         <?= nl2br(htmlspecialchars($article->content)) ?>
     </div>
+    <br>
+    <?php if (!empty($article->image)): ?>
+        <div class="article-image">
+            <img src="/uploads/<?= $article->image?>" alt="<?= htmlspecialchars($article->name) ?>" style="max-width: 100%; height: auto;">
+        </div>
+    <?php endif; ?>
 </div>
+
 
 <style>
     .article-view {

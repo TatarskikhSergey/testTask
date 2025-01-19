@@ -13,6 +13,7 @@ use Yii;
  * @property string $description
  * @property string $created_at
  * @property string $content
+ * @property string $image
  *
  * @property User $user
  */
@@ -37,6 +38,7 @@ class Article extends \yii\db\ActiveRecord
             [['created_at'], 'safe'],
             [['content'], 'string'],
             [['name', 'description'], 'string', 'max' => 255],
+            [['image'], 'string', 'max' => 255],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
         ];
     }

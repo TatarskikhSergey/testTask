@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /** @var yii\web\View $this */
-/** @var app\models\Article $model */
+/** @var \common\models\Article $model */
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
@@ -20,6 +20,7 @@ use yii\widgets\ActiveForm;
 
 
     <?= $form->field($model, 'content')->textarea(['rows' => 15]) ?>
+    <?= $form->field($model, 'image')->fileInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

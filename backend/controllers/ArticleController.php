@@ -9,6 +9,7 @@ use Exception;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * ArticleController implements the CRUD actions for Article model.
@@ -70,11 +71,22 @@ class ArticleController extends Controller
     public function actionCreate()
     {
         $model = new Article();
-
         $model->created_at = date('Y-m-d H:i:s');
+
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+            if ($model->load($this->request->post())) {
+
+                $model->image = UploadedFile::getInstance($model, 'image');
+
+                if ($model->image) {
+                    $model->image->saveAs('../../frontend/web/uploads/' . $model->image->baseName . '.' . $model->image->extension);
+                    $model->image = $model->image->baseName . '.' . $model->image->extension;
+                }
+
+
+                if ($model->save(false)) {
+                    return $this->redirect(['view', 'id' => $model->id]);
+                }
             }
         } else {
             $model->loadDefaultValues();
@@ -84,6 +96,7 @@ class ArticleController extends Controller
             'model' => $model,
         ]);
     }
+
 
     /**
      * Updates an existing Article model.
